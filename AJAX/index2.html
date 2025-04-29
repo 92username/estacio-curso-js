@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Imagens Aleatórias de Cachorros</title>
+</head>
+<body>
+
+    <h1>Bem-vindo!</h1>
+    <p>Clique no botão abaixo para carregar imagens aleatórias de cachorros.</p>
+
+    <button onclick="carregarImagem()">Clique para carregar imagens aleatórias</button>
+
+    <br><br>
+    <img id="imagem-cachorro" src="" alt="Imagem do cachorro aparecerá aqui" width="300" />
+
+    <script>
+        function carregarImagem() {
+            fetch('https://dog.ceo/api/breeds/image/random')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro na requisição: ' + response.status);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const urlImagem = data.message;
+                    document.getElementById('imagem-cachorro').src = urlImagem;
+                })
+                .catch(error => {
+                    console.error('Erro ao carregar imagem:', error);
+                    alert('Não foi possível carregar a imagem. Tente novamente.');
+                });
+        }
+    </script>
+
+</body>
+</html>
