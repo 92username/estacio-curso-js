@@ -3,7 +3,7 @@
 um array, como veremos a seguir, quanto para substituir e inserir. 
 Sua sintaxe é: */
 
-// array.splice(início, quantos, valor1, valor2, ...)
+// array.splice(início, quantidade_para_remover, item1, item2, ...)
 
 var alunos = ['Alex', 'Anna', 'João'];
 alunos.splice(3,0,'Helena');
